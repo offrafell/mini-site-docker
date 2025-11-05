@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  margin-bottom: 24px;
+  height: 96px;
+  border-bottom: #ccc 2px solid;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav h1 {
+  display: none;
+}
+
+nav ul {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+nav ul li {
+  list-style-type: none;
+  border-radius: 12px;
+}
+
+nav ul li.selecionado {
+  color: #1356ff;
+}
+
+nav ul li a,
+nav ul li a:visited,
+nav ul li a:hover,
+nav ul li a:active {
+  color: inherit;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-bottom: 48px;
+}
+
+main h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1.25em 0px;
+}
+
+main h2,
+main h3 {
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+main p {
+  text-indent: 2em;
+}
+
+.container {
+  padding-inline: 16px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  nav h1 {
+    display: initial;
+  }
+
+  .container {
+    padding-inline: 32px;
+  }
+}
+
+@media (min-width: 840px) {
+  .container {
+    padding-inline: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: 96px;
+  }
+}
+
+@media (min-width: 1600px) {
+}
