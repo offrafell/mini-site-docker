@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker e Conteinerização</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+
+  <body>
+    <nav>
+      <h1>RAFAEL</h1>
+
+      <ul>
+        <li class="selecionado"><a href="./index.html">Introdução</a></li>
+        <li><a href="./containeres.html">Conteinerização</a></li>
+        <li><a href="./docker.html">Docker</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Docker</h1>
+
+      <h2>Introdução</h2>
+      <p>
+        O Docker é uma plataforma de código-aberto que permite desenvolver,
+        transportar e executar aplicações dentro de contêineres padronizados.
+        Com ele, desenvolvedores e equipes de operações conseguem reduzir a
+        fricção entre ambientes e adotar uma entrega de software mais ágil e
+        confiável.
+      </p>
+
+      <h2>Como funciona o Docker?</h2>
+      <p>
+        O Docker utiliza imagens de contêiner que empacotam a aplicação
+        juntamente com suas dependências, bibliotecas e tempo de execução,
+        criando um ambiente isolado para execução. Uma vez construída a imagem,
+        é possível instanciar contêineres com rapidez e previsibilidade, seja
+        para desenvolvimento, testes ou produção.
+      </p>
+      <p>
+        Além disso, instalar o Docker em sistemas modernos é direto: por
+        exemplo, em distribuições baseadas em Ubuntu, basta configurar o
+        repositório oficial, instalar o motor Docker, o CLI e o plugin Compose,
+        e então verificar com comandos como <code>docker --version</code> e
+        <code>docker run hello-world</code>.
+      </p>
+
+      <h2>Benefícios principais</h2>
+      <ul>
+        <li>
+          <strong>Consistência entre ambientes:</strong> A imagem Docker garante
+          que a aplicação rode da mesma forma do desenvolvimento à produção.
+        </li>
+        <li>
+          <strong>Velocidade de deploy:</strong> Contêineres iniciam
+          rapidamente, facilitando ciclos de entrega contínua.
+        </li>
+        <li>
+          <strong>Eficiência de recursos:</strong> O Docker compartilha o kernel
+          do host e evita a necessidade de um sistema operacional completo por
+          instância, reduzindo uso de memória e armazenamento.
+        </li>
+        <li>
+          <strong>Portabilidade:</strong> Imagens Docker podem ser executadas em
+          servidores on-premises, VPS, ou provedores de nuvem sem alterações
+          maiores.
+        </li>
+      </ul>
+
+      <h2>Casos de uso</h2>
+      <p>Algumas situações onde o Docker se destaca:</p>
+      <ul>
+        <li>
+          <strong>Desenvolvimento ágil:</strong> configurar ambientes locais que
+          espelham produção.
+        </li>
+        <li>
+          <strong>Entrega contínua (CI/CD):</strong> automatizar builds, testes
+          e deploys com imagens consistentes.
+        </li>
+        <li>
+          <strong>Escalonamento na nuvem ou em infraestrutura híbrida:</strong>
+          instanciar contêineres conforme a demanda.
+        </li>
+        <li>
+          <strong>Teste e migração de aplicações legadas ou modulares:</strong>
+          com menos risco de romper dependências.
+        </li>
+      </ul>
+
+      <h2>Considerações e boas práticas</h2>
+      <p>
+        Mesmo com tantos benefícios, o uso do Docker requer atenção a alguns
+        pontos:
+      </p>
+      <ul>
+        <li>
+          Manter as imagens otimizadas. Imagens muito grandes ou com
+          dependências desnecessárias dificultam a manutenção.
+        </li>
+        <li>
+          Configurar corretamente os volumes, variáveis de ambiente e redes para
+          garantir segurança e desempenho.
+        </li>
+        <li>
+          Usar ferramentas de orquestração quando houver muitos contêineres ou
+          múltiplos serviços interdependentes (por exemplo Docker Compose ou
+          Docker Swarm).
+        </li>
+      </ul>
+
+      <h2>Exemplo</h2>
+      <p>
+        Um pequeno exemplo de um Dockerfile que está sendo usado para servir
+        esta página web
+      </p>
+      <pre>
+<code>FROM python:3.13
+WORKDIR /usr/local/app
+
+# Install the application dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy in the source code
+COPY src ./src
+EXPOSE 8080
+
+# Setup an app user so the container doesn't run as the root user
+RUN useradd app
+USER app
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]</code>
+</pre>
+
+      <h2>Resumo</h2>
+      <p>
+        O Docker consolidou-se como uma peça-chave na moderna infraestrutura de
+        TI e nos processos de desenvolvimento de software. Ele oferece um método
+        padronizado, eficiente e portátil para empacotar e executar aplicações
+        em qualquer ambiente.
+      </p>
+
+      <h2>Referências</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=-pUZBovqRcU">
+            Containers // Dicionário do Programador - Código Fonte TV</a
+          >
+        </li>
+        <li>
+          <a href="https://www.hostinger.com/tutorials/docker-tutorial">
+            Docker tutorial: A complete guide to running containers -
+            Hostinger</a
+          >
+        </li>
+        <li>
+          <a href="https://www.hostgator.com.br/blog/docker-o-que-e/">
+            Docker: Guia Completo Sobre a Tecnologia de Containers -
+            HostGator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/"
+          >
+            Writing a Dockerfile - Docker
+          </a>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

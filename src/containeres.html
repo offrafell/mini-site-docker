@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker e Conteinerização</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <h1>RAFAEL</h1>
+
+      <ul>
+        <li class="selecionado"><a href="./index.html">Introdução</a></li>
+        <li><a href="./containeres.html">Conteinerização</a></li>
+        <li><a href="./docker.html">Docker</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Contêineres</h1>
+
+      <h2>O que são Contêineres?</h2>
+      <p>
+        Os contêineres são unidades executáveis de software que empacotam o
+        código de uma aplicação junto com suas bibliotecas e dependências, de
+        modo que possam rodar de forma consistente em qualquer ambiente de
+        computação.
+      </p>
+      <p>
+        Em sua essência, a tecnologia de contêinerização baseia-se em
+        funcionalidades do kernel do sistema operacional para isolar processos e
+        controlar recursos (CPU, memória, disco) de modo eficiente.
+      </p>
+
+      <h2>Principais Benefícios</h2>
+      <ul>
+        <li>
+          <strong>Portabilidade:</strong> Um contêiner carrega todas as suas
+          dependências, o que permite executá-lo em diferentes ambientes sem
+          precisar reconfigurar.
+        </li>
+        <li>
+          <strong>Leveza e Eficiência:</strong> Ao compartilhar o kernel do
+          sistema operacional host, os contêineres evitam a necessidade de um
+          sistema operacional completo por instância, resultando em imagens
+          menores, inicialização mais rápida e uso de recursos mais eficiente.
+        </li>
+        <li>
+          <strong>Desenvolvimento e operação mais ágeis:</strong> Contêineres
+          facilitam ciclos rápidos de desenvolvimento, testes, integração e
+          entrega (CI/CD), ao oferecerem ambientes consistentes e previsíveis.
+        </li>
+        <li>
+          <strong>Escalabilidade e modernização:</strong> Usados frequentemente
+          em arquiteturas de microsserviços ou ambientes de nuvem
+          híbrida/multinuvem, os contêineres permitem modularização, implantação
+          independente e melhor utilização de recursos.
+        </li>
+      </ul>
+
+      <h2>Contêineres vs Máquinas Virtuais (VMs)</h2>
+      <p>
+        Embora tanto os contêineres quanto as máquinas virtuais ofereçam
+        isolamento e permitam executar aplicações de forma independente, a forma
+        como cada um alcança esse isolamento é bastante diferente. Enquanto as
+        VMs virtualizam todo o hardware de um servidor por meio de um
+        hipervisor, os contêineres virtualizam apenas o sistema operacional.
+        Isso significa que, em vez de executar um sistema operacional completo
+        para cada instância, como acontece em uma VM, os contêineres
+        compartilham o mesmo kernel do sistema host e isolam apenas os processos
+        e recursos necessários para cada aplicação.
+      </p>
+      <p>
+        Essa diferença de arquitetura torna os contêineres significativamente
+        mais leves e eficientes. Eles consomem menos recursos, inicializam quase
+        instantaneamente e ocupam menos espaço em disco, o que facilita sua
+        execução em larga escala. Já as máquinas virtuais, por conterem um
+        sistema operacional completo em cada instância, demandam mais memória,
+        armazenamento e tempo de inicialização, sendo mais indicadas para
+        cenários que exigem isolamento total do ambiente.
+      </p>
+      <p>
+        Além disso, os contêineres são muito mais portáteis. Como incluem todas
+        as dependências da aplicação em um pacote padronizado, podem ser
+        executados com facilidade em diferentes ambientes, desde o computador do
+        desenvolvedor até servidores em nuvem, sem precisar de ajustes manuais.
+        As máquinas virtuais, por outro lado, dependem de configurações
+        específicas do sistema convidado e do hipervisor, o que torna sua
+        mobilidade mais limitada.
+      </p>
+      <p>
+        Em resumo, os contêineres representam uma forma mais moderna, leve e
+        ágil de empacotar e executar aplicações, enquanto as máquinas virtuais
+        continuam sendo úteis para casos em que o isolamento completo ou a
+        execução de sistemas operacionais distintos é essencial.
+      </p>
+
+      <h2>Quando usar Contêineres?</h2>
+      <p>
+        A adoção de contêineres se mostra vantajosa em diversos cenários, como
+        por exemplo:
+      </p>
+      <ul>
+        <li>
+          <strong>Arquitetura de microserviços:</strong> cada serviço
+          encapsulado em um contêiner, implantado de forma independente.
+        </li>
+        <li>
+          <strong>Pipelines de CI/CD:</strong> ambientes padronizados ajudam a
+          garantir que o software criado no desenvolvimento rode da mesma forma
+          na produção.
+        </li>
+        <li>
+          <strong>Ambientes híbridos ou multicloud:</strong> a portabilidade dos
+          contêineres facilita migrações e implantação entre diferentes
+          provedores ou entre on-premises e nuvem.
+        </li>
+        <li>
+          <strong>Modernização de aplicações legadas:</strong>
+          ao encapsular aplicações em contêineres, organizações podem migrar
+          para a nuvem ou adotar novos modelos operacionais com menor impacto.
+        </li>
+      </ul>
+
+      <h2>Boas Práticas e Considerações de Segurança</h2>
+      <p>
+        Embora contêineres tragam muitos benefícios, é importante considerar
+        também aspectos de segurança e governança:
+      </p>
+      <ul>
+        <li>
+          Manter imagens de contêineres atualizadas e com dependências seguras.
+        </li>
+        <li>
+          Controlar o acesso aos registros de imagens e ao runtime de
+          contêineres.
+        </li>
+        <li>
+          Seguir o princípio de “zero trust” na arquitetura de contêineres,
+          especialmente em ambientes multicloud ou híbridos.
+        </li>
+        <li>
+          Incluir práticas de DevSecOps, com a segurança integrada ao pipeline
+          de desenvolvimento.
+        </li>
+      </ul>
+
+      <h2>Resumo</h2>
+      <p>
+        Contêineres são uma das tecnologias centrais da computação moderna pois
+        permitem empacotar aplicações com tudo o que elas precisam, para que
+        sejam executadas de forma consistente, rápida e eficiente em qualquer
+        ambiente. No próximo passo, você poderá explorar a página dedicada ao
+        Docker para entender como essa plataforma se tornou uma referência nessa
+        jornada de conteinerização.
+      </p>
+
+      <h3>Referências</h3>
+      <ul>
+        <li>
+          <a href="https://www.ibm.com/br-pt/think/topics/containers"
+            >O que são contêineres? - IBM</a
+          >
+        </li>
+        <li>
+          <a href="https://cloud.google.com/learn/what-are-containers?hl=pt-BR"
+            >O que são contêineres? - Google
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www-docker-com.translate.goog/resources/what-container/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc"
+            >Docker</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.redhat.com/pt-br/topics/containers/containers-vs-vms"
+          >
+            Containers ou VMs? - Red Hat
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=-pUZBovqRcU">
+            Containers // Dicionário do Programador - Código Fonte TV</a
+          >
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
